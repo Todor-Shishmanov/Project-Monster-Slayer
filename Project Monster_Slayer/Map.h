@@ -66,9 +66,12 @@ public:
 	T getUnit(Coordinate coord)
 	{
 		for (int i = 0; i < number_of_units; i++) {
-			if (vec_coord == coord) return vec_units[i];
+			if (vec_coord[i] == coord) return vec_units[i];
 		}
 		return T();
+	}
+	Coordinate getCoordByIndex(int index) {
+		return vec_coord[index];
 	}
 };
 
@@ -104,10 +107,10 @@ public:
 		return description;
 	} 
 	void updateMap() {
-		for (int i = 0; i < NPC.number_of_units; i++) {
-			Map[NPC.vec_coord[i].coord_y][NPC.vec_coord[i].coord_x] = 1;
+		int NPC_size = NPC.size();
+		for (int i = 0; i < NPC_size; i++) {
+			Map[NPC.getCoordByIndex(i).coord_y][NPC.getCoordByIndex(i).coord_x] = 1;
 		}
 	}
-
 }; 
 
