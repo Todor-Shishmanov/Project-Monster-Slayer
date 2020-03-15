@@ -1,11 +1,10 @@
 #pragma once
-#include "Unit.h"
+#include <vector>
 
 class Game
 {
 private:
 	std::vector<int> random_number;
-	Unit hero;
 	
 public:
 
@@ -13,7 +12,7 @@ public:
 	~Game();
 
 	bool GameOver() {
-		return hero.isDead();
+		return 0;
 	}
 	int get_random_number() {
 		int num = random_number[random_number.size()-1];

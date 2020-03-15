@@ -2,6 +2,7 @@
 #include <sstream>
 #include "Game.h"
 #include "Room.h"
+#include "Unit.h"
 
 int main() {
 

@@ -17,7 +17,6 @@ std::vector<int> RNG(int seed){
 Game::Game(int seed)
 {
 	random_number = RNG(seed);
-	Unit hero;
 
 }
 
