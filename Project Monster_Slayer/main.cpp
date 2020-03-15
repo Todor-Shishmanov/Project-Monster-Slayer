@@ -1,7 +1,7 @@
 #include <iostream>
 #include <sstream>
 #include "Game.h"
-#include "Map.h"
+#include "Room.h"
 
 int main() {
 
@@ -17,6 +17,8 @@ int main() {
 
 	Room<Unit> test_room("My cute room", test);
 	test_room.updateMap();
+	std::cout << niki.description();
+	std::cout << ivo.description();
 
 	system("pause");
 	return 0;

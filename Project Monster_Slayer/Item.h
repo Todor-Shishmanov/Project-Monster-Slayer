@@ -4,18 +4,23 @@ class Item
 {
 protected:
 	int weight;
-	std::string description;
+	std::string name;
 public:
 	Item() {
-		description = "Just an item";
+		name = "Just an item";
 		weight = 0;
 	}
-
-	bool operator !=(Item other) {
-		return (this->description == other.description && this->weight == other.weight);
+	Item(int weight, std::string description) {
+		this->weight = weight;
+		name = description;
 	}
-	std::string describe() {
-		return description;
+
+	bool operator ==(Item other) {
+		return (this->name == other.name && this->weight == other.weight);
+	}
+
+	std::string description() {
+		return name;
 	}
 };
 

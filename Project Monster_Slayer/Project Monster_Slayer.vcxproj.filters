@@ -33,9 +33,6 @@
     <ClCompile Include="Game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Map.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -44,16 +41,16 @@
     <ClInclude Include="Item.h">
       <Filter>Header Files\Items%28h%29</Filter>
     </ClInclude>
-    <ClInclude Include="Weapons.h">
-      <Filter>Header Files\Items%28h%29</Filter>
-    </ClInclude>
     <ClInclude Include="Unit.h">
       <Filter>Header Files\Units%28h%29</Filter>
     </ClInclude>
     <ClInclude Include="Potion.h">
       <Filter>Header Files\Items%28h%29</Filter>
     </ClInclude>
-    <ClInclude Include="Map.h">
+    <ClInclude Include="Weapon.h">
+      <Filter>Header Files\Items%28h%29</Filter>
+    </ClInclude>
+    <ClInclude Include="Room.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

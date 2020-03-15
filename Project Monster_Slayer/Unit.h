@@ -1,13 +1,10 @@
 #pragma once
-#include <vector>
-#include <string>
-#include "Item.h"
-
+#include "Weapon.h"
 class Unit
 {
 protected:
 	//cosmetics 
-	std::string name;
+	std::string Name;
 
 	//todo classes and other stuff
 	//...
@@ -16,39 +13,25 @@ protected:
 	int HP;
 	int level;
 
-	std::vector<Item> backpack;
+	Weapon weapon;
 
 public:
 	Unit() {
-		name = "This is just a Unit";
+		Name = "This is just a Unit";
 		HP = 10;
 		level = 1;
-		backpack = {};
+		weapon = Weapon();
 	}
 	Unit(std::string name, int lvl){
-		this->name = name;
+		Name = name;
 		level = lvl;
 		HP = 10 * level;
-		level = 1;
-		backpack = {};
-	}
-	Unit(std::string name, int lvl, std::vector<Item> set_of_items) {
-		this->name = name;
-		level = lvl;
-		HP = 10 * level;
-		level = 1;
-		
-		backpack = set_of_items;
+		weapon = Weapon();
 	}
 	~Unit() {}
 
 	bool operator ==(Unit other) {
-		if (this->HP != other.HP || this->name != other.name || this->backpack.size() != other.backpack.size()) return false;
-		bool flag = true;
-		for (int i = 0; i < backpack.size(); i++) {
-			if (this->backpack[i] != other.backpack[i]) return false;
-		}
-		return flag;
+		return (this->Name == other.Name && this->level == other.level && this->weapon == other.weapon);
 	}
 
 	void changeHP(int change) {
@@ -58,9 +41,11 @@ public:
 		if (HP == 0) return true;
 		return false;
 	}
-	std::string title() {
-		return name;
+	std::string description() {
+		std::string descr = Name;
+		descr += " armed with ";
+		descr += weapon.description() + ". ";
+		return descr;
 	}
-
 };
 
