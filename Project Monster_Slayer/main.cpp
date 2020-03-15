@@ -3,9 +3,10 @@
 #include "Game.h"
 #include "Room.h"
 #include "Unit.h"
+#include "Hero.h"
 
 int main() {
-
+	//testing
 	Unit niki("Niki", 2);
 	Unit ivo("Ivo", 3);
 
@@ -20,6 +21,8 @@ int main() {
 	test_room.updateMap();
 	std::cout << niki.description();
 	std::cout << ivo.description();
+
+	Hero test_hero;
 
 	system("pause");
 	return 0;

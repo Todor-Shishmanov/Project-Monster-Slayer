@@ -12,7 +12,7 @@ public:
 		weight = 0;
 		damage = 1;
 		broken_curr = 0;
-		broken_max = 0;
+		broken_max = -1;
 	}
 	Weapon(int weight, int damage, std::string item_name) {
 		name = item_name;

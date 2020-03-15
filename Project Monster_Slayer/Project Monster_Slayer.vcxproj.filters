@@ -53,5 +53,8 @@
     <ClInclude Include="Room.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Hero.h">
+      <Filter>Header Files\Units%28h%29</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

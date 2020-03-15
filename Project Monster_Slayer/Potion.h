@@ -1,4 +1,4 @@
-/*#pragma once
+#pragma once
 #include "Item.h"
 class Potion : public Item
 {
@@ -7,13 +7,13 @@ private:
 	bool used;
 public:
 	Potion() {
-		description = "This is just a Potion";
-		heal = 1;
-		weight = 1;
+		name = "This is just an empty vial";
+		heal = 0;
+		weight = 0;
 		used = true;
 	}
 	Potion(int heal, std::string desc) {
-		description = desc;
+		name = desc;
 		this->heal = heal;
 		weight = 1;
 		used = false;
@@ -24,7 +24,7 @@ public:
 		return heal;
 	}
 	bool isFull() {
-		return used;
+		return !used;
 	}
-};*/
+};
 
