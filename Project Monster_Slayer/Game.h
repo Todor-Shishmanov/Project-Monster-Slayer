@@ -1,5 +1,5 @@
 #pragma once
-#include <vector>
+#include "Hero.h"
 
 class Game
 {
@@ -11,7 +11,8 @@ public:
 	Game(int seed);
 	~Game();
 
-	bool GameOver() {
+	Hero characterCreation();
+	bool gameOver() {
 		return 0;
 	}
 	int get_random_number() {
@@ -19,5 +20,7 @@ public:
 		random_number.pop_back();
 		return num;
 	}
+	
+	void run();
 };
 

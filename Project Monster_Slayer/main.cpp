@@ -7,6 +7,8 @@
 
 int main() {
 	//testing
+	Game a(10);
+
 	Unit niki("Niki", 2);
 	Unit ivo("Ivo", 3);
 
@@ -23,6 +25,8 @@ int main() {
 	std::cout << ivo.description();
 
 	Hero test_hero;
+
+	a.characterCreation();
 
 	system("pause");
 	return 0;

@@ -1,5 +1,19 @@
 #include "Game.h"
 #include <iostream>
+#include <sstream>
+#include <fstream>
+
+//reads from a file to string
+void print_from_file(std::string filename)
+{
+	std::string contents;
+	std::ifstream in(filename, std::ios::in);
+	if(in){
+		std::cout << in.rdbuf();
+		in.close();
+	}
+	else std::cout << "Error in reading file!";
+}
 
 //creates a set of random numbers
 std::vector<int> RNG(int seed){
@@ -24,4 +38,10 @@ Game::Game(int seed)
 Game::~Game()
 {
 	
+}
+
+Hero Game::characterCreation()
+{
+	print_from_file("../Files/pure_text/characterCreation.txt");
+	return Hero();
 }
