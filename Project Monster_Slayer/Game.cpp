@@ -1,16 +1,14 @@
 #include "Game.h"
 #include <iostream>
-#include <sstream>
 #include <fstream>
 
-//reads from a file to string
-void print_from_file(std::string filename)
-{
-	std::string contents;
-	std::ifstream in(filename, std::ios::in);
-	if(in){
-		std::cout << in.rdbuf();
-		in.close();
+//reads from a file to console
+void printStream(std::ifstream &in ,std::string content) {
+	if (in) {
+		std::getline(in, content, '#');
+		std::cout << content;
+		system("pause");
+		system("CLS");
 	}
 	else std::cout << "Error in reading file!";
 }
@@ -27,11 +25,10 @@ std::vector<int> RNG(int seed){
 	return Z;
 }			
 
-
 Game::Game(int seed)
 {
 	random_number = RNG(seed);
-
+	//todo
 }
 
 
@@ -39,11 +36,39 @@ Game::~Game()
 {
 	
 }
-
+void intro(std::ifstream &in, std::string content){
+	printStream(in, content); //intro
+	printStream(in, content); //meet the old pirate
+	printStream(in, content); //the tide
+	printStream(in, content);
+	printStream(in, content);//nautilius story 1st part
+	printStream(in, content);//nautilius story 2nd part
+	printStream(in, content);//nautilius story 3rd part
+	printStream(in, content);//Asking about a name
+}
 Hero Game::characterCreation()
 {
-	print_from_file("../Files/pure_text/characterCreation.txt");
-	return Hero();
+	std::string name_answer = "";
+	std::string content;
+
+	std::ifstream in("../Files/pure_text/characterCreation.txt", std::ios::in);
+
+	intro(in, content); //intro
+
+	std::cin >> name_answer;
+	if (name_answer.size() > 10 || name_answer.size() < 2) {
+		while (name_answer.size() > 10 || name_answer.size() < 2); {
+			std::cout << "Please repeat that?";
+			std::cin >> name_answer;
+		}
+	}
+	printStream(in, content);
+
+	std::vector<Item> hero_backpack;
+	Weapon hero_weapon = Weapon();
+	Potion hero_potion = Potion();
+
+	return Hero(name_answer, 1, hero_backpack, hero_weapon, hero_potion);
 }
 
 void Game::run(){

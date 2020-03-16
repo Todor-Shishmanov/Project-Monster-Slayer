@@ -7,7 +7,8 @@
 
 int main() {
 	//testing
-	Game a(10);
+
+	Game test_game(10);
 
 	Unit niki("Niki", 2);
 	Unit ivo("Ivo", 3);
@@ -21,12 +22,10 @@ int main() {
 
 	Room<Unit> test_room("My cute room", test);
 	test_room.updateMap();
-	std::cout << niki.description();
-	std::cout << ivo.description();
+	//std::cout << niki.description();
+	//std::cout << ivo.description();
 
-	Hero test_hero;
-
-	a.characterCreation();
+	Hero test_hero = test_game.characterCreation();
 
 	system("pause");
 	return 0;
