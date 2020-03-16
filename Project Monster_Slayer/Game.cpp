@@ -45,3 +45,7 @@ Hero Game::characterCreation()
 	print_from_file("../Files/pure_text/characterCreation.txt");
 	return Hero();
 }
+
+void Game::run(){
+	return;
+}
