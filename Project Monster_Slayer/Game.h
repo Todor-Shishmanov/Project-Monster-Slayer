@@ -5,7 +5,7 @@ class Game
 {
 private:
 	std::vector<int> random_number;
-	
+	Hero main_hero;
 public:
 
 	Game(int seed);

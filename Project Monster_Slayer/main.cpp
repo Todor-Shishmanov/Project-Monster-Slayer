@@ -10,7 +10,7 @@ int main() {
 
 	Game test_game(10);
 
-	Unit niki("Niki", 2);
+	/*Unit niki("Niki", 2);
 	Unit ivo("Ivo", 3);
 
 	Coordinate c_niki(1, 1);
@@ -22,10 +22,8 @@ int main() {
 
 	Room<Unit> test_room("My cute room", test);
 	test_room.updateMap();
-	//std::cout << niki.description();
-	//std::cout << ivo.description();
-
-	Hero test_hero = test_game.characterCreation();
+	*/
+	
 
 	system("pause");
 	return 0;

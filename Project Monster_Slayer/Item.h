@@ -1,5 +1,7 @@
 #pragma once
 #include <string>
+#include <fstream>
+
 class Item
 {
 protected:
@@ -17,6 +19,10 @@ public:
 
 	bool operator ==(Item other) {
 		return (this->name == other.name && this->weight == other.weight);
+	}
+	friend std::ostream& operator<<(std::ostream& out, Item item) {
+		out << item.name << '#' << item.weight << '#';
+		return out;
 	}
 
 	std::string description() {

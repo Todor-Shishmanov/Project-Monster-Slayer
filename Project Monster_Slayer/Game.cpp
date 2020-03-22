@@ -2,17 +2,6 @@
 #include <iostream>
 #include <fstream>
 
-//reads from a file to console
-void printStream(std::ifstream &in ,std::string content) {
-	if (in) {
-		std::getline(in, content, '#');
-		std::cout << content;
-		system("pause");
-		system("CLS");
-	}
-	else std::cout << "Error in reading file!";
-}
-
 //creates a set of random numbers
 std::vector<int> RNG(int seed){
 	const int prime = 181;
@@ -23,11 +12,65 @@ std::vector<int> RNG(int seed){
 		Z.push_back((Z[i] * modulus) % prime);
 	}
 	return Z;
-}			
+}	
+
+void save(Hero hero) {
+	std::string file_name = "../Files/Heroes/";
+	file_name += hero.name();
+	file_name += ".txt";
+	std::ofstream saveHero(file_name.c_str(), std::ios::out);
+	if (!saveHero) {
+		std::cout << "saveHero not opening" << std::endl;;
+	}
+	else saveHero << hero;
+	saveHero.close();
+}
+
+bool nameCheck(std::string name) {
+
+	std::string content;
+	std::ifstream check("../Files/Heroes/alreadyCreatedNames.txt", std::ios::in);
+	while (!check.eof()) {
+		std::getline(check, content, '#');
+		if (name == content) {
+			std::cout << "Name already taken" << std::endl;
+			return false;
+		}
+	}
+	check.close();
+	int size = name.size();
+	if (size > 10 || size < 2) {
+		std::cout << "Name length must be bigger than 2 and smaller than 12" << std::endl;
+		return false;
+	}
+	if (name[0] > 90 || name[0] < 65) {
+		std::cout << "The first letter should be capital" << std::endl;
+		return false;
+	}
+	for (int i = 1; i < size; i++) {
+		if (name[i] > 122 || name[i] < 97) {
+			std::cout << "Only the first letter should be capital" << std::endl;
+			return false;
+		}
+	}
+	return true;
+}
+
+//reads from a file to console
+std::string printStream(std::ifstream &in) {
+	if (in) {
+		std::string content;
+		std::getline(in, content, '#');
+		return content;
+	}
+	else std::cout << "Error in reading file!";
+	return "";
+}
 
 Game::Game(int seed)
 {
 	random_number = RNG(seed);
+	main_hero = characterCreation();
 	//todo
 }
 
@@ -36,39 +79,30 @@ Game::~Game()
 {
 	
 }
-void intro(std::ifstream &in, std::string content){
-	printStream(in, content); //intro
-	printStream(in, content); //meet the old pirate
-	printStream(in, content); //the tide
-	printStream(in, content);
-	printStream(in, content);//nautilius story 1st part
-	printStream(in, content);//nautilius story 2nd part
-	printStream(in, content);//nautilius story 3rd part
-	printStream(in, content);//Asking about a name
-}
+
+
 Hero Game::characterCreation()
 {
 	std::string name_answer = "";
-	std::string content;
 
 	std::ifstream in("../Files/pure_text/characterCreation.txt", std::ios::in);
-
-	intro(in, content); //intro
-
+	std::cout << printStream(in);
 	std::cin >> name_answer;
-	if (name_answer.size() > 10 || name_answer.size() < 2) {
-		while (name_answer.size() > 10 || name_answer.size() < 2); {
-			std::cout << "Please repeat that?";
-			std::cin >> name_answer;
-		}
+	while (!nameCheck(name_answer)) {
+		std::cin >> name_answer;
 	}
-	printStream(in, content);
 
-	std::vector<Item> hero_backpack;
+	std::ofstream saveName("../Files/Heroes/alreadyCreatedNames.txt", std::ios::app);
+	saveName << name_answer << '#';
+	saveName.close();
+
+	std::vector<Item> hero_backpack = { Item(1,"A 'lucky kraken' silver coin") };
 	Weapon hero_weapon = Weapon();
 	Potion hero_potion = Potion();
+	Hero hero(name_answer, 1, 10, hero_weapon, hero_potion, hero_backpack);
 
-	return Hero(name_answer, 1, hero_backpack, hero_weapon, hero_potion);
+	save(hero);
+	return hero;
 }
 
 void Game::run(){
