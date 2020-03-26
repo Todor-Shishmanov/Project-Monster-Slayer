@@ -25,6 +25,9 @@
     <Filter Include="Source Files\Game Engine%28cpp%29">
       <UniqueIdentifier>{635caed7-732b-4ceb-81b4-b0630c6c8ab5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Units%28cpp%29">
+      <UniqueIdentifier>{bd5fe0f2-21ec-403f-98fd-d845cdcc9f1a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -32,6 +35,9 @@
     </ClCompile>
     <ClCompile Include="Game.cpp">
       <Filter>Source Files\Game Engine%28cpp%29</Filter>
+    </ClCompile>
+    <ClCompile Include="Hero.cpp">
+      <Filter>Source Files\Units%28cpp%29</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

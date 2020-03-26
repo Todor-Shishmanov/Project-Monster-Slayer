@@ -12,6 +12,8 @@ public:
 	~Game();
 
 	Hero characterCreation();
+	void save();
+	void load(std::string hero_name);
 	bool gameOver() {
 		return 0;
 	}
