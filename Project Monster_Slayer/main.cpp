@@ -24,8 +24,8 @@ int main() {
 	test_room.updateMap();
 	*/
 	
-	test_game.load("Toto");
-	system("pause");
+	
+	
 	return 0;
 
 }

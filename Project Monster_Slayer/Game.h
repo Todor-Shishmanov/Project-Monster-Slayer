@@ -13,7 +13,7 @@ public:
 
 	Hero characterCreation();
 	void save();
-	void load(std::string hero_name);
+	bool load(std::string hero_name);
 	bool gameOver() {
 		return 0;
 	}
@@ -22,6 +22,7 @@ public:
 		random_number.pop_back();
 		return num;
 	}
+	void UI();
 	
 	void run();
 };

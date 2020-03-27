@@ -2,7 +2,20 @@
 #include <iostream>
 
 //helpful
-
+bool isNewGame() {
+	std::cout << "Hello there good sir!" << std::endl << "Would you like a new adventure, or would you rather try to finish another?" << std::endl;
+	std::string answer;
+	std::cin >> answer;
+	while (answer != "new" && answer != "old") {
+		std::cout << "Answer with 'new' or 'old'" << std::endl;
+		std::cin >> answer;
+	}
+	if (answer == "new")
+		return 1;
+	else {
+		return 0;
+	}
+}
 bool nameCheck(std::string name, std::string check_list_path) {
 
 	std::string content;
@@ -69,7 +82,7 @@ void Game::save() {
 	//todo
 }
 
-void Game::load(std::string heroName)
+bool Game::load(std::string heroName)
 {
 	//load hero
 	std::string file_name = "../Files/game/heroes/";
@@ -103,6 +116,7 @@ void Game::load(std::string heroName)
 		}
 		main_hero = Hero(hero_name, hero_level, hero_HP, weapon, potion, hero_backpack);
 	}
+	else return 0;
 	loadHero.close();
 
 	//set the random_number
@@ -112,15 +126,35 @@ void Game::load(std::string heroName)
 	random_number = RNG(new_seed);
 
 	//todo
+	return 1;
 }
 
 
 Game::Game(int seed)
 {
-	random_number = RNG(seed);
-	main_hero = characterCreation();
-	//todo
-	save();
+	if (isNewGame()) {
+		random_number = RNG(seed);
+		main_hero = characterCreation();
+		//todo
+		save();
+	}
+	else {
+		std::cout << "What is the name of the hero you played in the game?" << std::endl;
+		std::string answer;
+		std::cin >> answer;
+		while (!load(answer)) {
+			std::cout << "No hero found with this name. Try again or type 'New Game' to start a new game: " << std::endl;
+			std::cin >> answer;
+			if (answer == "New Game") {
+				random_number = RNG(seed);
+				main_hero = characterCreation();
+				//todo
+				save();
+				break;
+			}
+		}
+	}
+	
 }
 
 
@@ -151,6 +185,8 @@ Hero Game::characterCreation(){
 
 	return hero;
 }
+
+
 
 void Game::run(){
 	return;
