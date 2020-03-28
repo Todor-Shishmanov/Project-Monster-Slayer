@@ -22,7 +22,7 @@ public:
 		random_number.pop_back();
 		return num;
 	}
-	void UI();
+	
 	
 	void run();
 };

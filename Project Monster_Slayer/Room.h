@@ -81,21 +81,28 @@ class Room
 private:
 	std::string description;
 	CoordTable<T> NPC_table;
-	int ** Map;
+	int Map[20][20];
 public:
-	Room(std::string desc, CoordTable<T> NPC_coord_list, int ** map) {
+	Room(std::string desc, CoordTable<T> NPC_coord_list) {
 		description = desc;
 		NPC_table = NPC_coord_list;
-		Map = map;
+		for (int i = 0; i < 20; i++) {
+			for (int j = 0; j < 20; j++) {
+				Map[i][j] = 0;
+			}
+		}
+		updateMap();
 	}
 	Room() {
 		description = "This is just a Room";
 		NPC_table = {};
-		Map = nullptr;
+		for (int i = 0; i < 20; i++) {
+			for (int j = 0; j < 20; j++) {
+				Map[i][j] = 0;
+			}
+		}
 	}
-	~Room() {
-		delete []Map;
-	}
+	~Room() {}
 
 	//do it with a seed
 	std::string describe() { 
