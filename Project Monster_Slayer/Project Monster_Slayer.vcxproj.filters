@@ -63,4 +63,7 @@
       <Filter>Header Files\Game Engine%28h%29</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
+  </ItemGroup>
 </Project>

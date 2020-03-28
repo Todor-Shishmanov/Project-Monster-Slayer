@@ -80,36 +80,31 @@ class Room
 {
 private:
 	std::string description;
-	CoordTable<T> NPC;
-	int Map[10][10] = {0,0,0,0,0,0,0,0,0,0,
-					   0,0,0,0,0,0,0,0,0,0,
-					   0,0,0,0,0,0,0,0,0,0,
-					   0,0,0,0,0,0,0,0,0,0,
-					   0,0,0,0,0,0,0,0,0,0,
-					   0,0,0,0,0,0,0,0,0,0,
-					   0,0,0,0,0,0,0,0,0,0,
-					   0,0,0,0,0,0,0,0,0,0,
-					   0,0,0,0,0,0,0,0,0,0,
-					   0,0,0,0,0,0,0,0,0,0};
+	CoordTable<T> NPC_table;
+	int ** Map;
 public:
-	Room(std::string desc, CoordTable<T> NPC_list) {
+	Room(std::string desc, CoordTable<T> NPC_coord_list, int ** map) {
 		description = desc;
-		NPC = NPC_list;
+		NPC_table = NPC_coord_list;
+		Map = map;
 	}
 	Room() {
 		description = "This is just a Room";
-		NPC = {};
+		NPC_table = {};
+		Map = nullptr;
 	}
-	~Room() {}
+	~Room() {
+		delete []Map;
+	}
 
 	//do it with a seed
 	std::string describe() { 
 		return description;
 	} 
 	void updateMap() {
-		int NPC_size = NPC.size();
-		for (int i = 0; i < NPC_size; i++) {
-			Map[NPC.getCoordByIndex(i).coord_y][NPC.getCoordByIndex(i).coord_x] = 1;
+		int NPC_table_size = NPC_table.size();
+		for (int i = 0; i < NPC_table_size; i++) {
+			Map[NPC_table.getCoordByIndex(i).coord_y][NPC_table.getCoordByIndex(i).coord_x] = 1;
 		}
 	}
 }; 

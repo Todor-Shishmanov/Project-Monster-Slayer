@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="CoordTable&lt;T&gt;" Collapsed="true">
+    <Position X="5.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACIAAAAAAAgAAAAAIAAAAAEAAAAEAAQgAAgAAABAAA=</HashCode>
+      <FileName>Room.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game" Collapsed="true">
+    <Position X="2.5" Y="5.75" Width="1.5" />
+    <AssociationLine Name="main_hero" Type="Hero" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="3.25" Y="5.75" />
+        <Point X="3.25" Y="4.941" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.099" Y="0.479" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAICQAAAAAAAAAAAAAQiAAAAAAEAAAAAAUIA=</HashCode>
+      <FileName>Game.h</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="main_hero" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Hero" Collapsed="true">
+    <Position X="2.5" Y="4.25" Width="1.5" />
+    <InheritanceLine Type="Unit" FixedToPoint="true">
+      <Path>
+        <Point X="3.25" Y="3.562" />
+        <Point X="3.25" Y="4.25" />
+      </Path>
+      <InheritanceModifierLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="0.106" Y="0.057" Height="0.182" Width="0.5" />
+      </InheritanceModifierLabel>
+    </InheritanceLine>
+    <AssociationLine Name="potion" Type="Potion" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="2.5" Y="4.562" />
+        <Point X="1.25" Y="4.562" />
+        <Point X="1.25" Y="2.441" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.132" Y="1.846" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAgAAAAEAAAAAABAAAAAAAAgAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Hero.h</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="potion" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Item" Collapsed="true">
+    <Position X="1.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAIAAAAQAEAAAEAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>Item.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Potion" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>ACAAAAAIAIAAAAgAAAAAAAAAAAAAAAAAAAAASAAAAAA=</HashCode>
+      <FileName>Potion.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Room&lt;T&gt;" Collapsed="true">
+    <Position X="5.75" Y="5.75" Width="1.5" />
+    <AssociationLine Name="NPC" Type="CoordTable&lt;T&gt;">
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="0.068" Y="1.937" Height="0.182" Width="0.587" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAABAACBAAAAAAIBAAAAAAEAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Room.h</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="NPC" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Weapon" Collapsed="true">
+    <Position X="2.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAgAAAAAABIYBAAAAAAAgAAAAABAAAAAA=</HashCode>
+      <FileName>Weapon.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Unit" Collapsed="true">
+    <Position X="2.5" Y="3" Width="1.5" />
+    <AssociationLine Name="weapon" Type="Weapon">
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="0.077" Y="0.336" Height="0.182" Width="0.729" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAYAAAAQQASBEAAAAAAAAAAAQAAAA=</HashCode>
+      <FileName>Unit.h</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="weapon" />
+    </ShowAsAssociation>
+  </Class>
+  <Struct Name="Coordinate" Collapsed="true">
+    <Position X="5.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAAAMAQAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Room.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

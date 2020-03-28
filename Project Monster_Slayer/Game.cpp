@@ -68,6 +68,7 @@ std::vector<int> RNG(int seed) {
 }
 
 void Game::save() {
+
 	//save hero
 	std::string file_name = "../Files/game/heroes/";
 	file_name += main_hero.name();
@@ -82,8 +83,8 @@ void Game::save() {
 	//todo
 }
 
-bool Game::load(std::string heroName)
-{
+bool Game::load(std::string heroName){
+
 	//load hero
 	std::string file_name = "../Files/game/heroes/";
 	file_name += heroName;
@@ -130,8 +131,8 @@ bool Game::load(std::string heroName)
 }
 
 
-Game::Game(int seed)
-{
+Game::Game(int seed){
+
 	if (isNewGame()) {
 		random_number = RNG(seed);
 		main_hero = characterCreation();
@@ -158,8 +159,7 @@ Game::Game(int seed)
 }
 
 
-Game::~Game()
-{
+Game::~Game(){
 	
 }
 
